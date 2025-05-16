@@ -91,7 +91,7 @@ class SiswaResource extends Resource
                 ->label('Foto')
                 ->image()
                 ->disk('public') // ini wajib!
-                ->directory('fotosiswa')
+                ->directory('siswa_photos')
                 ->preserveFilenames()
                 ->visibility('public')
                 ->columnSpanFull()
