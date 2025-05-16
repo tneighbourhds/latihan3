@@ -7,10 +7,30 @@ use App\Models\Pkl;  // Model Pkl
 use App\Models\Siswa; // Relasi dengan model Siswa
 use App\Models\Industri; // Relasi dengan model Industri
 use App\Models\Guru; // Relasi dengan model Guru
+use Illuminate\Support\Facades\DB; // Import DB untuk transaksi
 
 class CreatePkl extends Component
 {
     public $siswa_id, $industri_id, $guru_id, $mulai, $selesai;
+
+    // $sudahInput berfungsi sebagai flag untuk mengecek apakah siswa sudah pernah mengisi data PKL sebelumnya atau belum
+    public $sudahInput = false; // ✅ Properti untuk cek input PKL
+    // sudah input berarti sudah isi, nah false itu kan maksudnya berarti kita gabisa ngisi form lagi
+    // jadi misal dah input, yaudah false kaga bisa lapor lagi.
+
+
+    // ✅ Ini mount-nya kamu taruh di sini
+    public function mount()
+    {
+        // Ambil id siswa berdasarkan email yang sedang login
+        $siswaId = Siswa::where('email', auth()->user()->email)->value('id');   // Mendapatkan ID siswa berdasarkan email yang sedang login melalui auth()->user()->email.
+
+        $this->siswa_id = $siswaId; // Menyimpan ID siswa yang diperoleh ke dalam properti $siswa_id.
+
+        // Cek apakah sudah pernah input PKL
+        $this->sudahInput = Pkl::where('siswa_id', $siswaId)->exists();
+        // Mengecek apakah siswa sudah pernah mengisi data PKL. Jika sudah, properti $sudahInput di-set menjadi true.
+    }
 
     // Menambahkan validasi untuk form input
     protected $rules = [
@@ -22,42 +42,49 @@ class CreatePkl extends Component
     ];
 
     public function save()
-    // ini tu disesuaiin sama yang create-pkl.blade. pada baris     
-    // <form wire:submit.prevent="save">
-
     {
         // Melakukan validasi data
         $this->validate();
 
-        // Simpan data PKL
-        Pkl::create([
-            'siswa_id' => $this->siswa_id, //sesuai yang diberi di tabel pkl ya!
-            'industri_id' => $this->industri_id,
-            'guru_id' => $this->guru_id,
-            'mulai' => $this->mulai, // Menggunakan properti yang sesuai
-            'selesai' => $this->selesai, // Menggunakan properti yang sesuai
-        ]);
+        // Menggunakan DB::beginTransaction() untuk memulai transaksi, kemudian mencoba menyimpan data PKL dengan Pkl::create(). Jika berhasil, transaksi di-commit dengan DB::commit().
 
-        // Menampilkan pesan sukses setelah data berhasil disimpan
-        session()->flash('message', 'PKL berhasil ditambahkan!');
-        
-        // Redirect ke halaman dashboard setelah berhasil
-        return redirect()->route('dashboard');
-        // jadi setelah kita submit (melaporkan diri) nanti kita bakalan diarahin ke dashbord
+        DB::beginTransaction();
+
+        try {
+            // Simpan data PKL
+            Pkl::create([
+                'siswa_id' => $this->siswa_id, //sesuai yang diberi di tabel pkl ya!
+                'industri_id' => $this->industri_id,
+                'guru_id' => $this->guru_id,
+                'mulai' => $this->mulai, // Menggunakan properti yang sesuai
+                'selesai' => $this->selesai, // Menggunakan properti yang sesuai
+            ]);
+
+            DB::commit();
+
+            // Menampilkan pesan sukses setelah data berhasil disimpan
+            session()->flash('message', 'PKL berhasil ditambahkan!');
+            
+            // Redirect ke halaman dashboard setelah berhasil
+            return redirect()->route('dashboard');
+
+            // menangani kesalahan atau exception yang terjadi selama eksekusi kode dalam blok try.
+            } catch (\Exception $e) { // menangkap dan menangani error atau exception yang terjadi selama eksekusi kode di dalam blok try.
+                DB::rollBack(); //membatalkan transaksi database yang telah dimulai dengan DB::beginTransaction() di awal.
+
+            // Menangani error dan menampilkan pesan error
+            session()->flash('error', 'Terjadi kesalahan: ' . $e->getMessage());
+        }
     }
 
     public function render()
-    // merender (menampilkan) halaman
     {
         // Ambil data yang diperlukan untuk dropdown
-        $siswas = Siswa::all();
         $industris = Industri::all();
         $gurus = Guru::all();
+        $siswas = Siswa::where('email', auth()->user()->email)->get();  // Menampilkan siswa sesuai email yang login
 
-
-        // Menghapus compact('pkls') karena tidak diperlukan
+        // Menampilkan halaman create-pkl dengan data siswa, industri, dan guru
         return view('livewire.create-pkl', compact('siswas', 'industris', 'gurus'))->layout('layouts.app');
-        //menampilkan halaman create pkl. 
-        //Compact ini akan menerima data yang berisi daftar siswa, industri, dan guru
     }
 }

@@ -31,21 +31,22 @@ return [
     'disks' => [
 
         'local' => [
-            'driver' => 'local',
-            'root' => storage_path('app/private'),
-            'serve' => true,
-            'throw' => false,
-            'report' => false,
-        ],
+        'driver' => 'local',
+        'root' => storage_path('app/private'),
+    ],
+    'public' => [
+        'driver' => 'local',
+        'root' => storage_path('app/public'),
+        'url' => env('APP_URL').'/storage',
+        'visibility' => 'public',
+    ],
+    'private' => [
+        'driver' => 'local',
+        'root' => storage_path('app/private'),  // Mengarah ke folder private
+        'visibility' => 'private',  // Pastikan menggunakan visibility private
+    ],
 
-        'public' => [
-            'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
-            'visibility' => 'public',
-            'throw' => false,
-            'report' => false,
-        ],
+
 
         's3' => [
             'driver' => 's3',

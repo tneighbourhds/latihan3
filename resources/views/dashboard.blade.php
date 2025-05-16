@@ -1,8 +1,6 @@
 <!-- resources/views/dashboard.blade.php -->
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="text-xl font-semibold">Dashboard</h2>
-    </x-slot>
+    
 
     <div class="py-10">
         @php
@@ -37,4 +35,3 @@
 
 
 
-dasboard

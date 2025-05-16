@@ -10,6 +10,14 @@ use Filament\Forms;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Forms\Components\FileUpload;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Storage;
+
+
+
+
+
 
 class SiswaResource extends Resource
 {
@@ -20,17 +28,6 @@ class SiswaResource extends Resource
     {
         return $form
             ->schema([
-                // Forms\Components\Select::make('guru_id')
-                //     ->label('Guru Pendamping')
-                //     ->options(Guru::all()->pluck('nama', 'id')) // Dropdown untuk memilih Guru
-                //     ->searchable()
-                //     ->required(),
-
-                // Forms\Components\Select::make('industri_id')
-                //     ->label('Industri')
-                //     ->options(Industri::all()->pluck('nama', 'id')) // Dropdown untuk memilih Industri
-                //     ->searchable()
-                //     ->required(),
 
                 Forms\Components\TextInput::make('nama')
                     ->label('Nama Siswa')
@@ -65,6 +62,41 @@ class SiswaResource extends Resource
                     ->label('Status PKL')
                     ->default(false)
                     ->required(),
+
+                //  // Menggunakan FileUpload untuk foto siswa
+                // Forms\Components\FileUpload::make('foto')
+                // ->label('Foto')
+                // ->image()
+                // // ->imagePreviewHeight(100)
+                // // ->maxSize(1024) // maksimal 1MB
+                // // ->disk('public')
+                // ->directory('siswa_photos')
+                // // ->preserveFilenames()
+                // ->visibility('public')
+                // ->required() // atau ->nullable() jika tidak wajib
+                // ->columnSpanFull()
+                // ->preview(),
+
+                // FileUpload::make('foto')
+                //     ->label('Foto')
+                //     ->image()  // Mengizinkan hanya file gambar
+                //     ->directory('siswa_photos')  // Folder tempat foto disimpan
+                //     ->disk('public')  // Menyimpan di disk public
+                //     ->visibility('public')  // Pastikan file tersedia secara publik
+                //     ->maxSize(1024)  // Maksimal ukuran file 1MB
+                //     ->required(),  // Jika foto wajib
+
+                
+                Forms\Components\FileUpload::make('foto')
+                ->label('Foto')
+                ->image()
+                ->disk('public') // ini wajib!
+                ->directory('fotosiswa')
+                ->preserveFilenames()
+                ->visibility('public')
+                ->columnSpanFull()
+                ->required(),
+                
             ]);
     }
 
@@ -72,8 +104,18 @@ class SiswaResource extends Resource
     {
         return $table
             ->columns([
+
+                // Menampilkan gambar (Foto)
+                Tables\Columns\ImageColumn::make('foto')
+                ->label('Foto')
+                ->disk('public')
+                ->circular()
+                ->visibility('public')
+                ->height(40),
+
                 Tables\Columns\TextColumn::make('nama')
                     ->label('Nama Siswa'),
+
                 Tables\Columns\TextColumn::make('nis')
                     ->label('NIS'),
                 // Tables\Columns\TextColumn::make('guru.nama')
