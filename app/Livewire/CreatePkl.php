@@ -17,6 +17,7 @@ class CreatePkl extends Component
     public $sudahInput = false; // ✅ Properti untuk cek input PKL
     // sudah input berarti sudah isi, nah false itu kan maksudnya berarti kita gabisa ngisi form lagi
     // jadi misal dah input, yaudah false kaga bisa lapor lagi.
+    
 
 
     // ✅ Ini mount-nya kamu taruh di sini

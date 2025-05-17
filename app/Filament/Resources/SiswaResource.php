@@ -16,9 +16,6 @@ use Illuminate\Support\Facades\Storage;
 
 
 
-
-
-
 class SiswaResource extends Resource
 {
     protected static ?string $model = Siswa::class;
@@ -96,7 +93,7 @@ class SiswaResource extends Resource
                 ->visibility('public')
                 ->columnSpanFull()
                 ->required(),
-                // ijjj
+                
             ]);
     }
 

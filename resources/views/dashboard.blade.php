@@ -1,14 +1,11 @@
-<!-- resources/views/dashboard.blade.php -->
 <x-app-layout>
-    
-
     <div class="py-10">
         @php
             $user = auth()->user();
         @endphp
 
         @if ($user->roles->isEmpty())
-            <div class="text-center text-red-600">
+            <div class="text-center text-red-600" style="font-family: 'Poppins', sans-serif;">
                 Akun Anda belum diberikan role oleh admin. Silakan tunggu konfirmasi.
             </div>
 
@@ -16,22 +13,17 @@
             {{-- Tampilan khusus siswa --}}
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white p-6 rounded-lg shadow">
-                    <h3 class="text-lg font-bold mb-4">Halo, {{ $user->name }}</h3>
-                    <p>Silakan input data PKL dan Industri:</p>
-                    
-                    <div class="d-flex justify-content-between mb-4">
-                        <!-- Tombol untuk menambah industri -->
-                        <a href="{{ route('pkl.create') }}" class="btn btn-primary">Input Data PKL</a>
-                    </div>
+                    <!-- <h3 class="text-lg font-bold mb-4" style="font-family: 'Poppins', sans-serif;">Welcome Back!</h3> -->
+                    <h1 class="text-lg font-bold mb-4" style="font-family: 'Poppins', sans-serif;">Hi, {{ $user->name }}! Welcome Back</h1>
 
-                <!-- Tambahkan komponen Livewire atau form input PKL dan Industri di bawah sini -->
-                 @livewire('daftar-siswa')
+                    <!-- <p style="font-family: 'Poppins', sans-serif;">Silakan input data PKL dan Industri:</p> -->
 
+                   
+
+                    <!-- Menampilkan komponen daftar siswa -->
+                    @livewire('daftar-siswa')
                 </div>
             </div>
         @endif
     </div>
 </x-app-layout>
-
-
-
