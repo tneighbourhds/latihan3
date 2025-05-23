@@ -26,7 +26,7 @@ Route::get('/industri', DaftarIndustri::class)->name('industri.index');
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('landingpage');
 });
 
 Route::middleware([
@@ -50,6 +50,6 @@ Route::middleware([
 });
 
 // Rute untuk dashboard admin
-Route::middleware(['auth:sanctum', 'verified'])->get('/admin/dashboard', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/admin/dashboard', function () { // m
     return view('admin.dashboard');  // Tampilan dashboard untuk admin
 })->name('admin.dashboard');
