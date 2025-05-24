@@ -53,3 +53,6 @@ Route::middleware([
 Route::middleware(['auth:sanctum', 'verified'])->get('/admin/dashboard', function () { // m
     return view('admin.dashboard');  // Tampilan dashboard untuk admin
 })->name('admin.dashboard');
+
+
+

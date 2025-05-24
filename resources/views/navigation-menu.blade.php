@@ -15,15 +15,15 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('Daftar PKL') }}
                     </x-nav-link>
 
                     <x-nav-link href="{{ route('industri.index') }}" :active="request()->routeIs('industri.index')">
-                        {{ __('Daftar Industri') }}
+                        {{ __('About Us') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('guru.index') }}" :active="request()->routeIs('guru.index')">
+                    <!-- <x-nav-link href="{{ route('guru.index') }}" :active="request()->routeIs('guru.index')">
                         {{ __('Daftar Guru') }}
-                    </x-nav-link>
+                    </x-nav-link> -->
                     <!-- <x-nav-link href="{{ route('siswa.index') }}" :active="request()->routeIs('siswa.index')">
                         {{ __('Daftar Siswa') }}
                     </x-nav-link> -->

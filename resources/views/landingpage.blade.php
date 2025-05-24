@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Garden Tree - Landing Page</title>
+<title>Input Data PKL - Landing Page</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
   * {
@@ -409,7 +409,7 @@ p.description {
   }
   .about-text p {
     font-size: 1rem;
-    color: #0043F1;
+    color:rgb(21, 34, 70);
     line-height: 1.6;
   }
   .about-text a {
@@ -446,76 +446,72 @@ p.description {
     border-radius: 12px;
   }
 
-  /* Contact Section - Perlebar */
-  .contact-section {
+   .contact-section {
     max-width: 900px;
-    margin: 3rem auto;
-    padding: 2rem 3rem;
-    background: linear-gradient(135deg, #80A1F8 0%, #0043F1 100%);
-    border-radius: 16px;
-    box-shadow: 0 8px 20px rgb(0 67 241 / 0.3);
+    margin: 2rem auto;
+    padding: 2rem 8rem;
+    background: linear-gradient(135deg,rgb(235, 237, 243),rgb(225, 228, 237)); /* Gradasi Biru */
+    border-radius: 13px;
+    box-shadow: 0 8px 20px rgba(0, 51, 102, 0.3); /* Darker blue shadow */
     color: #FDFDFD;
     font-weight: 600;
   }
+
   .contact-section h2 {
     font-weight: 700;
-    font-size: 2.2rem;
+    font-size: 2.0rem;
     margin-bottom: 1.5rem;
-    letter-spacing: 0.04em;
     text-align: center;
+    color: #000000; /* Warna putih */
+
   }
+
   .contact-list-enhanced {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
   }
+
   .contact-item {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
-    background: #FDFDFD;
-    padding: 0.9rem 1.3rem;
+    gap: 1rem;
+    background:rgb(2, 9, 15); /* Darker blue background for each item */
+    padding: 1rem 1.5rem;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgb(0 0 0 / 0.12);
-    color: #000014;
-    text-decoration: none;
-    font-size: 1.05rem;
-    position: relative;
+    color: #FDFDFD;
+    font-size: 1.1rem;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
     user-select: none;
+    text-decoration: none;
   }
+
   .contact-item:hover,
   .contact-item:focus {
-    box-shadow: 0 6px 18px rgb(0 67 241 / 0.6);
+    box-shadow: 0 6px 18px rgba(203, 212, 236, 0.9);
     transform: translateY(-4px);
     outline: none;
   }
+
   .contact-item img {
     flex-shrink: 0;
   }
+
   .contact-item .arrow {
     margin-left: auto;
     font-size: 1.3rem;
-    color: #0043F1;
+    color: #80A1F8; /* Light blue arrow color */
     transition: margin-left 0.3s ease;
   }
+
   .contact-item:hover .arrow,
   .contact-item:focus .arrow {
     margin-left: 0.5rem;
   }
-  .contact-item.whatsapp img {
-    filter: invert(39%) sepia(90%) saturate(615%) hue-rotate(78deg) brightness(92%) contrast(87%);
-  }
-  .contact-item.instagram img {
-    filter: invert(31%) sepia(77%) saturate(3090%) hue-rotate(296deg) brightness(92%) contrast(88%);
-  }
-  .contact-item.email img {
-    filter: invert(30%) sepia(12%) saturate(1657%) hue-rotate(79deg) brightness(91%) contrast(86%);
-  }
 
   /* Footer */
   footer {
-    background-color: #002C58;
+    background-color:rgb(7, 24, 40);
     color: #EAEAEA;
     padding: 3rem 2rem 3rem;
     font-size: 0.9rem;
@@ -623,16 +619,16 @@ p.description {
     </nav>
 
     <div class="auth-buttons">
-      <button class="btn-register" type="button">Register</button>
-      <button class="btn-login" type="button">Login</button>
+      <button class="btn-register" type="button" onclick="window.location.href='http://127.0.0.1:8000/register'">Register</button>
+<button class="btn-login" type="button" onclick="window.location.href='http://127.0.0.1:8000/login'">Login</button>
     </div>
   </div>
   <div class="hero" role="banner" aria-label="Garden Tree hero section with call to action">
     <h1>Absensi Praktik Kerja Lapangan untuk Pencatatan Kehadiran</h1>
     <p>Memudahkan proses pencatatan kehadiran siswa selama Praktik Kerja Lapangan dengan sistem absensi yang sederhana, cepat, dan akurat, sehingga mendukung kelancaran administrasi dan monitoring kegiatan lapangan.</p>
     <div class="btn-group">
-      <button class="btn-primary" type="button">Get In Touch</button>
-      <button class="btn-secondary" type="button">Who We Are</button>
+      <button class="btn-primary" type="button">Mulai Presensi PKL</button>
+      <a href="https://lms.stembayo.top/" class="btn-secondary" role="button">LMS Stembayo</a>
     </div>
   </div>
 </header>
@@ -655,8 +651,8 @@ p.description {
 
 <section id="about-us" class="about-section custom-about" aria-label="Digital agency problems and solutions">
   <div class="about-text">
-    <h2>Digital agency problems<br>and their best solutions</h2>
-    <p>Omitting compelling digital experiences that captivate audiences and drive meaningful connections. Our digital agency combines innovation, strategy, and expertise to fuel your online success. The other hand we discovered problems including and criticize not who are so bright and the opinions. We believe that the success of the agency depends on sharing the chances of phases of the moment.</p>
+    <h2>Praktik Kerja Lapangan (PKL)<br>SMK NEGERI 2 Depok</h2>
+    <p>Praktik Kerja Lapangan (PKL) di SMKN 2 Depok Yogyakarta memberikan kesempatan kepada siswa untuk mendapatkan pengalaman langsung di dunia industri. Namun, tantangan yang sering dihadapi adalah kesenjangan antara kurikulum pendidikan dengan kebutuhan industri yang terus berkembang. Meskipun demikian, dengan dukungan dari mitra industri, kami terus berupaya untuk menyesuaikan program PKL agar lebih relevan dengan kebutuhan pasar kerja.</p>
   </div>
   <div class="images-carousel" aria-label="Team images carousel">
     <button class="carousel-btn prev" aria-label="Previous image">&lt;</button>
@@ -673,7 +669,7 @@ p.description {
 
 
 <h1>Our Gallery</h1>
-<p class="description">This project is created in order to help business</p>
+<p class="description">some photos of SIJA'26 memories</p>
 
 <div id="gallery" class="gallery" aria-label="Image gallery with mixed sizes">
   <div class="gallery-item item1">
@@ -713,12 +709,12 @@ p.description {
   <div class="contact-list-enhanced">
     <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" aria-label="WhatsApp contact" class="contact-item whatsapp">
       <img src="https://cdn-icons-png.flaticon.com/24/733/733585.png" alt="WhatsApp icon" width="24" height="24" />
-      WhatsApp: +62 812-3456-7890
+      WhatsApp: +62 812-2974-8960
       <span class="arrow">→</span>
     </a>
-    <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener" aria-label="Instagram profile" class="contact-item instagram">
+    <a href="https://instagram.com/sijaantigedor" target="_blank" rel="noopener" aria-label="Instagram profile" class="contact-item instagram">
       <img src="https://cdn-icons-png.flaticon.com/24/733/733558.png" alt="Instagram icon" width="24" height="24" />
-      Instagram: @yourprofile
+      Instagram: @sijaantigedor
       <span class="arrow">→</span>
     </a>
     <a href="mailto:info@gardentree.com" aria-label="Email contact" class="contact-item email">
@@ -733,7 +729,7 @@ p.description {
   <div class="footer-container" aria-label="Footer navigation and contact information">
     <div class="footer-col">
       <h3>PKL Tracker</h3>
-      <p>Platform digital untuk mengelola Praktek Kerja Lapangan SMK TI Bali Global dengan teknologi modern dan interface yang user-friendly.</p>
+      <p>Platform digital untuk mengelola Praktek Kerja Lapangan SMK NEGERI 2 DEPOK dengan teknologi modern dan interface yang user-friendly.</p>
     </div>
     <div class="footer-col">
       <h3>Quick Links</h3>
@@ -752,9 +748,9 @@ p.description {
     </div>
     <div class="footer-col footer-contact-info">
       <h3>Contact Info</h3>
-      <p><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M20 4H4c-1.104 0-2 .896-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6c0-1.104-.896-2-2-2zm0 2l-8 5-8-5h16z"/></svg> <a href="mailto:pkl@smktibali.ac.id">pkl@smktibali.ac.id</a></p>
+      <p><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M20 4H4c-1.104 0-2 .896-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6c0-1.104-.896-2-2-2zm0 2l-8 5-8-5h16z"/></svg> <a href="mailto:pkl@smktibali.ac.id">pkl@sijastembayo.ac.id</a></p>
       <p><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l1.58-1.58a1 1 0 011.11-.21c1.21.48 2.53.74 3.88.74a1 1 0 011 1v3.5a1 1 0 01-1 1C10.54 21 3 13.46 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.35.25 2.67.74 3.88a1 1 0 01-.21 1.11l-1.41 1.8z"/></svg> +62 361-123-4567</p>
-      <p><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zM7 9a5 5 0 0110 0c0 2.98-3.02 7.87-5 10.88C10.01 16.86 7 11.92 7 9z"/></svg> Bali, Indonesia</p>
+      <p><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zM7 9a5 5 0 0110 0c0 2.98-3.02 7.87-5 10.88C10.01 16.86 7 11.92 7 9z"/></svg> Yogyakarta, Indonesia</p>
     </div>
   </div>
 </footer>
