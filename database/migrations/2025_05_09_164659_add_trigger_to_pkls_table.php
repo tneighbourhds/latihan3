@@ -13,7 +13,7 @@ return new class extends Migration {
             FOR EACH ROW
             BEGIN
                 UPDATE siswas
-                SET status_lapor_pkl = TRUE
+                SET status_pkl = TRUE
                 WHERE id = NEW.siswa_id;
             END;
         ');
@@ -25,7 +25,7 @@ return new class extends Migration {
             FOR EACH ROW
             BEGIN
                 UPDATE siswas
-                SET status_lapor_pkl = FALSE
+                SET status_pkl = FALSE
                 WHERE id = OLD.siswa_id;
             END;
         ');
