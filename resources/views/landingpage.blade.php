@@ -606,7 +606,7 @@ p.description {
 <header id="home">
   <div class="navbar">
     <a href="#" class="logo" aria-label="Garden Tree Logo">
-    <img src="{{ asset('storage/fotofoto/okok.jpg') }}" alt="Garden Tree Logo" style="width:28px; height:28px; margin-right:10px; object-fit:contain;">
+    <img src="{{ url('fotofoto/logosija.png') }}" alt="Garden Tree Logo" style="width:28px; height:28px; margin-right:10px; object-fit:contain;">
     SIJA Stembayo
     </a>
 

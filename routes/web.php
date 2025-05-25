@@ -7,6 +7,21 @@ use App\Livewire\CreateIndustri;
 use App\Livewire\DaftarGuru;
 use App\Livewire\DaftarSiswa;
 use App\Livewire\CreatePkl;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Response;
+
+Route::get('/fotofoto/{filename}', function ($filename) {
+    $path = storage_path('fotofoto/' . $filename);
+
+    if (!File::exists($path)) {
+        abort(404);
+    }
+
+    $file = File::get($path);
+    $type = File::mimeType($path);
+
+    return Response::make($file, 200)->header("Content-Type", $type);
+});
 
 // Halaman Create Pkl
 Route::get('/pkl/create', CreatePkl::class)->name('pkl.create');
