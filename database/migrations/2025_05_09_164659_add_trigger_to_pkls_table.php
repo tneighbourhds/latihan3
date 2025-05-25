@@ -13,7 +13,7 @@ class AddTriggerToPklsTable extends Migration
             AFTER INSERT ON siswas
             FOR EACH ROW
             BEGIN
-                IF NEW.pkl_id IS NOT NULL THEN
+                IF NEW.id_pkl IS NOT NULL THEN
                     UPDATE siswas
                     SET status_pkl = TRUE
                     WHERE id = NEW.id;
