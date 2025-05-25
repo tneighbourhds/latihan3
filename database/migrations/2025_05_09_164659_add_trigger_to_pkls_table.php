@@ -10,11 +10,11 @@ class AddTriggerToPklsTable extends Migration
          // Trigger untuk insert PKL
             DB::unprepared('
             CREATE TRIGGER after_insert_siswa
-            AFTER INSERT ON siswa
+            AFTER INSERT ON siswas
             FOR EACH ROW
             BEGIN
                 IF NEW.pkl_id IS NOT NULL THEN
-                    UPDATE siswa
+                    UPDATE siswas
                     SET status_pkl = TRUE
                     WHERE id = NEW.id;
                 END IF;
