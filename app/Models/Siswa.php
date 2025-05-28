@@ -20,6 +20,9 @@ class Siswa extends Model
 
     public function pkls()
     {
-        return $this->hasOne(Pkl::class);
+        return $this->hasOne(Pkl::class); 
+        // one to one.
+        // Model ini hanya punya satu data terkait di tabel pkls. Jika model ini adalah User, maka setiap user hanya punya satu entitas Pkl.
+        
     }
 }

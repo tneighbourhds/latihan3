@@ -11,5 +11,6 @@ class Industri extends Model
     public function pkls()
     {
         return $this->hasMany(Pkl::class);
+        // one to many. yang dimana misal industri itu idnya cuma 1 tapi bisa dipake di beberapa daftar.
     }
 }
