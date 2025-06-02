@@ -29,7 +29,7 @@
   /* Navbar */
   header {
     position: relative;
-    background-image: url("{{ asset('storage/siswa_photos/sijaa.jpg') }}");
+    background-image: url("{{ url('fotofoto/sijaa.jpg') }}");
     background-size: cover;
     background-position: center;
     padding: 1rem 2rem;
@@ -606,7 +606,7 @@ p.description {
 <header id="home">
   <div class="navbar">
     <a href="#" class="logo" aria-label="Garden Tree Logo">
-    <img src="{{ url('fotofoto/logosija.png') }}" alt="Garden Tree Logo" style="width:28px; height:28px; margin-right:10px; object-fit:contain;">
+    <img src="{{ url('fotofoto/logosija2.png') }}" alt="Garden Tree Logo" style="width:28px; height:28px; margin-right:10px; object-fit:contain;">
     SIJA Stembayo
     </a>
 
@@ -634,16 +634,16 @@ p.description {
 </header>
 
 <section class="cards" aria-label="Services cards">
-<div class="card" style="background-image: url('{{ asset('storage/siswa_photos/jaringan.jpeg') }}')">
+<div class="card" style="background-image: url('{{ url('fotofoto/jaringan.jpeg') }}')">
     <span class="card-text">Jaringan Komputer Dasar</span>
   </div>
-  <div class="card" style="background-image: url('{{ asset('storage/siswa_photos/siskom.jpeg') }}')">
+  <div class="card" style="background-image: url('{{ url('fotofoto/siskom.jpeg') }}')">
     <span class="card-text">Sistem Komputer</span>
   </div>
-  <div class="card" style="background-image: url('{{ asset('storage/siswa_photos/program.jpeg') }}')">
+  <div class="card" style="background-image: url('{{ url('fotofoto/program.jpeg') }}')">
     <span class="card-text">Pemrograman Dasar</span>
   </div>
-  <div class="card" style="background-image: url('{{ asset('storage/siswa_photos/jaringan.jpeg') }}')" tabindex="0" aria-label="Internet of Things">
+  <div class="card" style="background-image: url('{{ url('fotofoto/IOT.jpeg') }}')" tabindex="0" aria-label="Internet of Things">
     <span class="card-text">Internet of Things</span>
   </div>
 </section>
@@ -659,7 +659,7 @@ p.description {
     <div class="carousel-track-container">
       <ul class="carousel-track">
         <li class="carousel-slide">
-          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Team Collaboration" />
+          <img src="{{ url('fotofoto/SIOT(1).jpeg') }}" alt="Team Collaboration" />
         </li>
       </ul>
     </div>
@@ -673,31 +673,31 @@ p.description {
 
 <div id="gallery" class="gallery" aria-label="Image gallery with mixed sizes">
   <div class="gallery-item item1">
-    <img src="{{ asset('storage/siswa_photos/foto1.jpg') }}" alt="Hanger rack with clothes" />
+    <img src="{{ url('fotofoto/foto1.jpg') }}" alt="Hanger rack with clothes" />
   </div>
   <div class="gallery-item item2">
-    <img src="{{ asset('storage/siswa_photos/foto2.jpg') }}" alt="Two people walking outside" />
+    <img src="{{ url('fotofoto/foto2.jpg') }}" alt="Two people walking outside" />
   </div>
   <div class="gallery-item item3">
-    <img src="{{ asset('storage/siswa_photos/foto3.jpg') }}" alt="Watch on table" />
+    <img src="{{ url('fotofoto/foto3.jpg') }}" alt="Watch on table" />
   </div>
   <div class="gallery-item item4">
-    <img src="{{ asset('storage/siswa_photos/foto4.jpg') }}" alt="Man wearing hat looking sideways" />
+    <img src="{{ url('fotofoto/foto4.jpg') }}" alt="Man wearing hat looking sideways" />
   </div>
   <div class="gallery-item item5">
-    <img src="{{ asset('storage/siswa_photos/foto5.jpg') }}" alt="Shoes and pants flat lay" />
+    <img src="{{ url('fotofoto/foto5.jpg') }}" alt="Shoes and pants flat lay" />
   </div>
   <div class="gallery-item item6">
-    <img src="{{ asset('storage/siswa_photos/foto6.jpg') }}" alt="Shirts on hangers" />
+    <img src="{{ url('fotofoto/foto6.jpg') }}" alt="Shirts on hangers" />
   </div>
   <div class="gallery-item item7">
-    <img src="{{ asset('storage/siswa_photos/foto7.jpg') }}" alt="Colorful flower pattern" />
+    <img src="{{ url('fotofoto/foto7.jpg') }}" alt="Colorful flower pattern" />
   </div>
   <div class="gallery-item item8">
-    <img src="{{ asset('storage/siswa_photos/foto8.jpg') }}" alt="Green leaves in glass vase" />
+    <img src="{{ url('fotofoto/foto8.jpg') }}" alt="Green leaves in glass vase" />
   </div>
   <div class="gallery-item item9">
-    <img src="{{ asset('storage/siswa_photos/foto9.jpg') }}" alt="Stack of white books" />
+    <img src="{{ url('fotofoto/foto9.jpg') }}" alt="Stack of white books" />
   </div>
 </div>
 
