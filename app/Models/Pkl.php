@@ -1,18 +1,39 @@
 <?php
 
-namespace App\Models;
 
+namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Siswa;
+use App\Models\Industri;
+use App\Models\Guru;
+use Illuminate\Support\Carbon;
+
 
 class Pkl extends Model
 {
     protected $table = 'pkls';
 
-    // Menambahkan kolom yang harus di-cast ke Carbon
-    protected $dates = ['mulai', 'selesai'];
-
     protected $fillable = ['siswa_id', 'industri_id', 'guru_id', 'mulai', 'selesai'];
 
+    protected $casts = [
+        'mulai' => 'date',
+        'selesai' => 'date',
+    ];
+
+     // Membuat accessor
+    public function getDurasiAttribute()
+    {
+        if ($this->mulai && $this->selesai) {
+            return $this->mulai->diffInDays($this->selesai);
+        }
+        return null;  // atau 0, sesuai kebutuhan
+    }
+
+    // di App\Models\Pkl.php
+    public function guru()
+    {
+        return $this->belongsTo(Guru::class);
+    }
     public function siswa()
     {
         return $this->belongsTo(Siswa::class);
@@ -22,9 +43,16 @@ class Pkl extends Model
     {
         return $this->belongsTo(Industri::class);
     }
-
-    public function guru()
+    protected static function booted()
     {
-        return $this->belongsTo(Guru::class);
+        static::saving(function ($pkl) {
+            if ($pkl->mulai && $pkl->selesai) {
+                $durasi = $pkl->mulai->diffInDays($pkl->selesai);
+
+                if ($durasi < 90) {
+                    throw new \Exception('Durasi PKL minimal harus 90 hari.');
+                }
+            }
+        });
     }
 }

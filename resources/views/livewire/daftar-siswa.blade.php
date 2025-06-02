@@ -35,8 +35,9 @@
                         <td class="p-2" style="font-family: 'Poppins', sans-serif;">{{ $pkl->siswa->nama ?? '-' }}</td>
                         <td class="p-2" style="font-family: 'Poppins', sans-serif;">{{ $pkl->industri->nama ?? '-' }}</td>
                         <td class="p-2" style="font-family: 'Poppins', sans-serif;">{{ $pkl->guru->nama ?? '-' }}</td>
-                        <td class="p-2" style="font-family: 'Poppins', sans-serif;">{{ $pkl->mulai }}</td>
-                        <td class="p-2" style="font-family: 'Poppins', sans-serif;">{{ $pkl->selesai }}</td>
+                        <td class="p-3">{{ \Carbon\Carbon::parse($pkl->mulai)->format('d M Y') }}</td>
+                            <td class="p-3">{{ \Carbon\Carbon::parse($pkl->selesai)->format('d M Y') }}</td>
+                            <td class="p-3">{{ $pkl->durasi }} Hari</td>
                     </tr>
                 @empty
                     <tr>
