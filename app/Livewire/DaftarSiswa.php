@@ -3,26 +3,38 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 use App\Models\Pkl;
 
 class DaftarSiswa extends Component
 {
+    use WithPagination;
+
     public $search = '';  // Properti untuk pencarian siswa
+
+    protected $paginationTheme = 'tailwind';
+
+    // Reset halaman ke 1 setiap kali pencarian diubah
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
 
     public function render()
     {
-        // Menyaring data PKL berdasarkan nama siswa yang mengandung kata pencarian
-        $pkls = Pkl::whereHas('siswa', function ($query) {
-            // Menggunakan like untuk mencocokkan nama yang mengandung kata pencarian
-            $query->where('nama', 'like', '%' . $this->search . '%');
-        })->get();
+        // Gunakan paginate() untuk mendukung pagination dan onEachSide()
+        $pkls = Pkl::with(['siswa', 'industri', 'guru']) // eager load relasi
+                    ->whereHas('siswa', function ($query) {
+                        $query->where('nama', 'like', '%' . $this->search . '%');
+                    })
+                    ->paginate(2); // Ubah dari get() ke paginate()
 
         return view('livewire.daftar-siswa', compact('pkls'));
     }
 
-    // Menambahkan method untuk update pencarian saat tombol enter ditekan
+    // Opsional, jika ingin pencarian di-trigger manual
     public function updateSearch()
     {
-        // Anda bisa memanipulasi data pencarian di sini jika diperlukan
+        $this->resetPage();
     }
 }

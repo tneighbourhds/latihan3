@@ -2,7 +2,7 @@
     <h1 class="text-2xl font-bold mb-4">Daftar Industri</h1>
 <div class="d-flex justify-content-between mb-4">
         <!-- Tombol untuk menambah industri -->
-        <a href="{{ route('industri.create') }}" class="btn btn-primary">Tambah Industri</a>
+        <a href="{{ route('industri.create') }}" class="btn btn-dark">Tambah Industri</a>
     </div>
 
     <table class="w-full border rounded-lg">

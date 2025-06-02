@@ -15,7 +15,7 @@
 
     <div class="d-flex justify-content-between mb-4">
                         <!-- Tombol untuk menambah industri -->
-                        <a href="{{ route('pkl.create') }}" class="btn btn-primary" style="font-family: 'Poppins', sans-serif;">Input Data PKL</a>
+                        <a href="{{ route('pkl.create') }}" class="btn btn-dark" style="font-family: 'Poppins', sans-serif;">Input Data PKL</a>
                     </div>
 
     <div class="bg-white shadow-md rounded-xl p-6 overflow-auto">
@@ -46,4 +46,9 @@
             </tbody>
         </table>
     </div>
+
+    <!-- pagination -->
+     <div class="mt-4">
+        {{ $pkls->onEachSide(1)->links() }}
+</div>
 </div>

@@ -619,8 +619,8 @@ p.description {
     </nav>
 
     <div class="auth-buttons">
-      <button class="btn-register" type="button" onclick="window.location.href='http://127.0.0.1:8000/register'">Register</button>
-<button class="btn-login" type="button" onclick="window.location.href='http://127.0.0.1:8000/login'">Login</button>
+      <button class="btn-register" type="button" onclick="window.location.href='/register'">Register</button>
+<button class="btn-login" type="button" onclick="window.location.href='/login'">Login</button>
     </div>
   </div>
   <div class="hero" role="banner" aria-label="Garden Tree hero section with call to action">
