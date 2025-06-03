@@ -7,7 +7,7 @@
                <div class="shrink-0 flex items-center">
                 <a href="{{ route('dashboard') }}">
                     <!-- Ganti dengan logo Anda -->
-                      <img src="{{ asset('storage/siswa_photos/logosija.jpg') }}" class="block h-9 w-auto">
+                      <img src="{{ url('fotofoto/logosija2.jpg') }}" class="block h-9 w-auto">
                 </a>
             </div>
 
